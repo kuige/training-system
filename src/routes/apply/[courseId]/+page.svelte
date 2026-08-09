@@ -3,6 +3,15 @@
 	import { application } from '$lib/stores/application.svelte';
 	import { locations } from '$lib/mock/location';
   import { modeText } from '$lib/utils/textMapping';
+	import Stepper from '$lib/components/application/Stepper.svelte';
+
+	const steps = [
+		{ label:'个人信息' },
+		{ label:'学习方式' },
+		{ label:'地点时间' },
+		{ label:'扩展信息' },
+		{ label:'确认提交' }
+	];
 
 	application.courseId = page.params.courseId || '';
 
@@ -16,6 +25,10 @@
 		step--;
 	}
 
+	function changeStep(index: number) {
+		step = index;
+	}
+
   function getLocationName(locationId: string) {
     const location = locations.find((loc) => loc.id === locationId);
     return location ? location.name : '';
@@ -24,6 +37,8 @@
 
 <div class="mx-auto max-w-3xl p-6">
 	<h1 class="mb-6 text-3xl font-bold">课程报名</h1>
+	<Stepper steps={steps} current={step} onChange={changeStep} />
+	<div class="mb-6"></div>
 	{#if step === 1}
 		<h2 class="mb-4 text-xl">个人信息</h2>
 		<input class="mb-3 w-full border p-2" placeholder="姓名" bind:value={application.user.name} />
