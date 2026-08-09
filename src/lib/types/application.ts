@@ -18,3 +18,12 @@ export interface ApplicationForm {
 	training: TrainingInfo;
 	remarks: string;
 }
+
+export interface ApplicationRecord {
+	id: string;
+	courseId: string;
+	courseName: string;
+	courseStartTime: string;
+	user: UserInfo;
+	training: TrainingInfo;
+}

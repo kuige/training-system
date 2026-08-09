@@ -8,6 +8,10 @@
 			path: '/courses'
 		},
 		{
+			name: '我的报名',
+			path: '/my-applications'
+		},
+		{
 			name: '统计报表',
 			path: '/report'
 		}
