@@ -1,13 +1,10 @@
 <script lang="ts">
+  import { resolve } from '$app/paths';
 	import Card from '$lib/components/ui/Card.svelte';
 	import type { Course } from '$lib/types/course';
+	import { modeText } from '$lib/utils/textMapping';
 
 	let { course }: { course: Course } = $props();
-
-	const modeText = {
-		online: '线上',
-		offline: '线下'
-	};
 </script>
 
 <Card>
@@ -53,5 +50,10 @@
 		{/each}
 	</div>
 
-	<button class="mt-5 rounded bg-black px-4 py-2 text-white"> 查看详情 </button>
+	<a
+		href={resolve(`/apply/${course.id}`)}
+		class="mt-5 inline-block rounded bg-blue-600 px-4 py-2 text-white"
+	>
+		立即报名
+	</a>
 </Card>
