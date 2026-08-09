@@ -1,12 +1,11 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { application } from '$lib/stores/application.svelte';
-	import { locations } from '$lib/mock/location';
-  import { modeText } from '$lib/utils/textMapping';
 	import Stepper from '$lib/components/application/Stepper.svelte';
 	import UserForm from '$lib/components/application/UserForm.svelte';
 	import LearningModeForm from '$lib/components/application/LearningModeForm.svelte';
 	import LocationSelector from '$lib/components/application/LocationSelector.svelte';
+	import PreviewCard from '$lib/components/application/PreviewCard.svelte';
 
 	const steps = [
 		{ label:'个人信息' },
@@ -31,11 +30,6 @@
 	function changeStep(index: number) {
 		step = index;
 	}
-
-  function getLocationName(locationId: string) {
-    const location = locations.find((loc) => loc.id === locationId);
-    return location ? location.name : '';
-  }
 </script>
 
 <div class="mx-auto max-w-3xl p-6">
@@ -59,33 +53,11 @@
 
 	{#if step === 4}
 		<h2 class="mb-4 text-xl">其他信息</h2>
-		<input class="mb-3 w-full border p-2" bind:value={application.remarks} />
+		<input class="mb-3 w-full border p-2 rounded-lg" bind:value={application.remarks} />
 	{/if}
 
 	{#if step === 5}
-		<h2 class="mb-4 text-xl">信息确认</h2>
-		<div class="space-y-2 border p-4">
-			<p>
-				姓名：
-				{application.user.name}
-			</p>
-			<p>
-				电话：
-				{application.user.phone}
-			</p>
-			<p>
-				学习方式：
-				{modeText[application.training.mode]}
-			</p>
-			<p>
-				地点：
-				{getLocationName(application.training.locationId || '')}
-			</p>
-			<p>
-				时间：
-				{application.training.time}
-			</p>
-		</div>
+		<PreviewCard form={application} />
 	{/if}
 
 	<div class="mt-8 flex gap-4">
