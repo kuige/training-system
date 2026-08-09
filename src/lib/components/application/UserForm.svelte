@@ -5,7 +5,7 @@
 		user: UserInfo;
 	}
 
-	let { user }: Props = $props();
+	let { user = $bindable() }: Props = $props();
 </script>
 
 <div class="space-y-4">

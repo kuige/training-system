@@ -42,7 +42,7 @@
 	<div class="mb-6"></div>
 	{#if step === 1}
 		<h2 class="mb-4 text-xl">个人信息</h2>
-		<UserForm user={application.user} />
+		<UserForm bind:user={application.user} />
 	{/if}
 
 	{#if step === 2}
@@ -111,12 +111,12 @@
 
 	<div class="mt-8 flex gap-4">
 		{#if step > 1}
-			<button class="border px-4 py-2" onclick={prev}> 上一步 </button>
+			<button class="border px-4 py-2 rounded-lg" onclick={prev}> 上一步 </button>
 		{/if}
 		{#if step < 5}
-			<button class="bg-black px-4 py-2 text-white" onclick={next}> 下一步 </button>
+			<button class="bg-black px-4 py-2 text-white rounded-lg" onclick={next}> 下一步 </button>
 		{:else}
-			<button class="bg-green-600 px-4 py-2 text-white"> 提交报名 </button>
+			<button class="bg-green-600 px-4 py-2 text-white rounded-lg"> 提交报名 </button>
 		{/if}
 	</div>
 </div>
