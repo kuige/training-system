@@ -6,6 +6,7 @@
 	import Stepper from '$lib/components/application/Stepper.svelte';
 	import UserForm from '$lib/components/application/UserForm.svelte';
 	import LearningModeForm from '$lib/components/application/LearningModeForm.svelte';
+	import LocationSelector from '$lib/components/application/LocationSelector.svelte';
 
 	const steps = [
 		{ label:'个人信息' },
@@ -53,23 +54,7 @@
 
 	{#if step === 3}
 		<h2 class="mb-4 text-xl">培训地点和时间</h2>
-		{#if application.training.mode === 'offline'}
-			<select class="w-full border p-2" bind:value={application.training.locationId}>
-				<option value=""> 选择地点 </option>
-				{#each locations as location (location.id)}
-					<option value={location.id}>
-						{location.name}
-					</option>
-				{/each}
-			</select>
-			<input
-				class="mt-4 w-full border p-2"
-				type="datetime-local"
-				bind:value={application.training.time}
-			/>
-		{:else}
-			<p>线上学习无需选择地点</p>
-		{/if}
+		<LocationSelector bind:training={application.training} />
 	{/if}
 
 	{#if step === 4}
