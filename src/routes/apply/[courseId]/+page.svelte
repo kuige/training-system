@@ -5,6 +5,7 @@
   import { modeText } from '$lib/utils/textMapping';
 	import Stepper from '$lib/components/application/Stepper.svelte';
 	import UserForm from '$lib/components/application/UserForm.svelte';
+	import LearningModeForm from '$lib/components/application/LearningModeForm.svelte';
 
 	const steps = [
 		{ label:'个人信息' },
@@ -47,14 +48,7 @@
 
 	{#if step === 2}
 		<h2 class="mb-4 text-xl">学习方式</h2>
-		<label>
-			<input type="radio" value="online" bind:group={application.training.mode} />
-			线上学习
-		</label>
-		<label class="ml-5">
-			<input type="radio" value="offline" bind:group={application.training.mode} />
-			线下学习
-		</label>
+		<LearningModeForm bind:training={application.training} />
 	{/if}
 
 	{#if step === 3}
