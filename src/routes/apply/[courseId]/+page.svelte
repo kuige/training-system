@@ -4,6 +4,7 @@
 	import { locations } from '$lib/mock/location';
   import { modeText } from '$lib/utils/textMapping';
 	import Stepper from '$lib/components/application/Stepper.svelte';
+	import UserForm from '$lib/components/application/UserForm.svelte';
 
 	const steps = [
 		{ label:'个人信息' },
@@ -41,13 +42,7 @@
 	<div class="mb-6"></div>
 	{#if step === 1}
 		<h2 class="mb-4 text-xl">个人信息</h2>
-		<input class="mb-3 w-full border p-2" placeholder="姓名" bind:value={application.user.name} />
-		<input class="mb-3 w-full border p-2" placeholder="电话" bind:value={application.user.phone} />
-		<input
-			class="mb-3 w-full border p-2"
-			placeholder="地址"
-			bind:value={application.user.address}
-		/>
+		<UserForm user={application.user} />
 	{/if}
 
 	{#if step === 2}
