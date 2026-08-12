@@ -1,6 +1,6 @@
 <script lang="ts">
-	import * as echarts from 'echarts';
 	import { onMount } from 'svelte';
+	import echarts from '$lib/utils/echarts';
 
 	interface Props {
 		xAxis: string[];

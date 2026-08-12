@@ -1,5 +1,5 @@
 <script lang="ts">
-	import * as echarts from 'echarts';
+	import echarts from '$lib/utils/echarts';
 	import { onMount } from 'svelte';
 
 	interface Props {
