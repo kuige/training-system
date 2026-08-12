@@ -9,7 +9,7 @@
 </script>
 
 <div class="space-y-4">
-	<input class="w-full rounded-lg border p-3" placeholder="姓名" bind:value={user.name} />
-	<input class="w-full rounded-lg border p-3" placeholder="联系电话" bind:value={user.phone} />
-	<input class="w-full rounded-lg border p-3" placeholder="地址" bind:value={user.address} />
+	<input data-testid="name" class="w-full rounded-lg border p-3" placeholder="姓名" bind:value={user.name} />
+	<input data-testid="phone" class="w-full rounded-lg border p-3" placeholder="联系电话" bind:value={user.phone} />
+	<input data-testid="address" class="w-full rounded-lg border p-3" placeholder="地址" bind:value={user.address} />
 </div>
