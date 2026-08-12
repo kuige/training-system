@@ -30,6 +30,8 @@ export default defineConfig({
 	],
 	test: {
 		expect: { requireAssertions: true },
+		reporters: ['html'],
+    outputFile: './.output/test-report/index.html',
 		projects: [
 			{
 				extends: './vite.config.ts',
