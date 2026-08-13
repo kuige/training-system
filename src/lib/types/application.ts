@@ -27,3 +27,16 @@ export interface ApplicationRecord {
 	user: UserInfo;
 	training: TrainingInfo;
 }
+
+
+// 动态表单类型定义
+
+export type FormFieldType = 'input' | 'radio' | 'select';
+
+export interface FormFieldConfig {
+	key: string;
+	type: FormFieldType;
+	label: string;
+	placeholder?: string;
+	options?: Array<{ value: string; label: string }>;
+}

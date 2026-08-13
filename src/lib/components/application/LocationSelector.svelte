@@ -18,7 +18,7 @@
 			<option value=""> 请选择培训地点 </option>
 			{#each locations as location (location.id)}
 				<option value={location.id}>
-					{location.name}
+					{location.name}(容纳人数: {location.capacity})
 				</option>
 			{/each}
 		</select>
